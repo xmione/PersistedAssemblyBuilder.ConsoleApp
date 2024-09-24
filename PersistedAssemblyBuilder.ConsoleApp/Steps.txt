@@ -93,4 +93,11 @@ How To Fix Error: Unable to find package Blazor.Tools.BlazorBundler.Entities.Sam
 error NU1101: Unable to find package Blazor.Tools.BlazorBundler.Entities.SampleObjects.Data. No packages exist with this id in source(s): nuget.org
 
 1. In the bash terminal, run:
+
+ dotnet remove PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp.csproj package Blazor.Tools.BlazorBundler
  dotnet add PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp.csproj package Blazor.Tools.BlazorBundler
+
+::=============================================================================================================================================
+How To Build this project.
+::=============================================================================================================================================
+ dotnet build --verbosity detailed /p:PackageVersion="3.1.9" /p:Configuration="Release" /p:AssemblyVersion="3.1.9" /p:FileVersion="3.1." /p:Version="3.1.9"

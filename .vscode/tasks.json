@@ -7,7 +7,14 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\PersistedAssemblyBuilder.ConsoleApp.csproj"
+        "--verbosity",
+        "detailed",
+        "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\PersistedAssemblyBuilder.ConsoleApp.csproj",
+        "/p:PackageVersion=${env:PackageVersion}",
+        "/p:Configuration=${env:Configuration}",
+        "/p:AssemblyVersion=${env:AssemblyVersion}",
+        "/p:FileVersion=${env:FileVersion}",
+        "/p:Version=${env:PackageVersion}"
       ],
       "problemMatcher": "$msCompile"
     }

@@ -5,7 +5,7 @@
       "name": ".NET 9 Launch (console)",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build",
+      // "preLaunchTask": "build",
       "program": "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\bin\\Debug\\net9.0\\PersistedAssemblyBuilder.ConsoleApp.dll",
       "args": [],
       "cwd": "${workspaceFolder}",
