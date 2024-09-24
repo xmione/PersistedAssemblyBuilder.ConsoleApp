@@ -6,7 +6,7 @@
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/bin/Debug/net9.0/PersistedAssemblyBuilder.ConsoleApp.dll",
+      "program": "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\bin\\Debug\\net9.0\\PersistedAssemblyBuilder.ConsoleApp.dll",
       "args": [],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
