@@ -12,12 +12,12 @@
     //  "problemMatcher": "$msCompile"
     //},
     {
-      "label": "build frontend",
+      "label": "build",
       "command": "dotnet",
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/Blazor.Tools/Blazor.Tools.csproj"
+        "${workspaceFolder}/PersistedAssemblyBuilder.ConsoleApp.csproj"
       ],
       "problemMatcher": "$msCompile"
     }
