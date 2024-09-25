@@ -1,6 +1,7 @@
 {
   "name": "C# (.NET)",
   "image": "mcr.microsoft.com/devcontainers/dotnet",
+  "runArgs": ["--user", "root", "--name", "persistedassemblybuilder-container"],
   "customizations": {
     "vscode": {
       "settings": {
@@ -15,6 +16,9 @@
   "features": {
     "ghcr.io/devcontainers/features/powershell:1": {}
   },
-  "postCreateCommand": "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/ && chmod +x load-env.ps1'",
-  "postStartCommand": "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/ && ./load-env.ps1'"
+  "mounts": [
+  "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "postCreateCommand": "sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update && sudo apt-get install -y docker.io && sudo chmod +x /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/initializebashfiles.sh",
+  "postStartCommand": "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/ && ./initializebashfiles.sh && docker restart persistedassemblybuilder-container' 2>&1 | tee -a /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/postStartCommand.log"
 }

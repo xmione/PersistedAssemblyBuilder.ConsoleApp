@@ -8,7 +8,7 @@
 Write-Output "Running Get-Tools module..."
 
 # Ensure execution policy is Unrestricted
-Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force -ErrorAction SilentlyContinue
+#Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force -ErrorAction SilentlyContinue
 
 $ScriptDir = Split-Path -parent $MyInvocation.MyCommand.Path
 
