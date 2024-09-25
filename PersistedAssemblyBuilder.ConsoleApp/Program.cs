@@ -1,4 +1,4 @@
-﻿// Used .net 9.0 Preview 7 framework for this and nuget package Blazor.Tools.Bundler version 3.1.10 (updated 9/26)
+﻿// Used .net 9.0 Preview 7 framework for this and nuget package Blazor.Tools.Bundler version 3.1.12 (updated 9/26)
 using System.Reflection;
 using System.Reflection.Emit;
 using Blazor.Tools.BlazorBundler.Entities.SampleObjects.Models;
