@@ -16,9 +16,6 @@
   "features": {
     "ghcr.io/devcontainers/features/powershell:1": {}
   },
-  "mounts": [
-  "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-  ],
-  "postCreateCommand": "sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update && sudo apt-get install -y docker.io && sudo chmod +x /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/initializebashfiles.sh",
-  "postStartCommand": "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/ && ./initializebashfiles.sh && docker restart persistedassemblybuilder-container' 2>&1 | tee -a /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/postStartCommand.log"
+  "postCreateCommand": "cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/ && sudo chmod +x initializebashfiles.sh && ./initializebashfiles.sh",
+  "postStartCommand": ""
 }
