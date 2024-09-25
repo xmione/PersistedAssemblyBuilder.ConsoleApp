@@ -7,5 +7,8 @@
   "extensions": [
     "ms-dotnettools.csharp",
     "ms-vscode.vscode-node-azure-pack"
-  ]
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/powershell:1": {}
+  }
 }
