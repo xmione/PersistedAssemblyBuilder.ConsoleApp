@@ -20,7 +20,7 @@ public class Program
             var contextAssemblyName = "Blazor.Tools.BlazorBundler.Interfaces";
             var assemblyFileName = $"{contextAssemblyName}.dll";
             var version = "1.0.0.0";
-            var iViewModelTypeName = $"{contextAssemblyName}.IViewModel`2";
+            var iViewbaseTypeName = $"{contextAssemblyName}.IViewModel`2";
             var tempPath = Path.GetTempPath();
             var dllFilePath = $"{tempPath}.{contextAssemblyName}.dll";
             var employeeTypeAssemblyName = "Blazor.Tools.BlazorBundler.Entities.SampleObjects.Models";
@@ -28,7 +28,7 @@ public class Program
             var iModelExtendedPropertiesTypeName = $"{contextAssemblyName}.IModelExtendedProperties";
 
             // Define the types for generic parameters
-            Type modelType = typeof(Employee);
+            Type baseType = typeof(Employee);
             Type modelExtendedPropertiesType = typeof(IModelExtendedProperties);
 
             // Create the assembly and module
@@ -38,16 +38,32 @@ public class Program
 
             // Define the generic type
             TypeBuilder typeBuilder = moduleBuilder.DefineType(
-                iViewModelTypeName,
+                iViewbaseTypeName,
                 TypeAttributes.Public | TypeAttributes.Interface | TypeAttributes.Abstract,
                 null
             );
 
-            // Define the generic parameters (without earlier techniques that did not work)
-            GenericTypeParameterBuilder[] genericParamBuilders = typeBuilder.DefineGenericParameters(
-                $"{employeeTypeName}",
-                $"{iModelExtendedPropertiesTypeName}"
-            );
+            string[] typeParamNames = {"TModel", "TIModel"};
+            GenericTypeParameterBuilder[] typeParams = typeBuilder.DefineGenericParameters(typeParamNames);
+
+            GenericTypeParameterBuilder TModel = typeParams[0];
+            GenericTypeParameterBuilder TIModel = typeParams[1];
+
+            // Apply constraints to the type parameters.
+            //
+            // A type that is substituted for the first parameter, TModel,
+            // must be a reference type and must have a parameterless
+            // constructor.
+            TModel.SetGenericParameterAttributes( GenericParameterAttributes.DefaultConstructorConstraint | GenericParameterAttributes.ReferenceTypeConstraint);
+
+            // A type that is substituted for the second type
+            // parameter must implement IExampleA and IExampleB, and
+            // inherit from the trivial test class ExampleBase. The
+            // interface constraints are specified as an array
+            // containing the interface types.
+            TIModel.SetBaseTypeConstraint(baseType);
+            Type[] interfaceTypes = {modelExtendedPropertiesType};
+            TIModel.SetInterfaceConstraints(interfaceTypes);
 
             // Create the type
             Type createdType = typeBuilder.CreateTypeInfo().AsType();
