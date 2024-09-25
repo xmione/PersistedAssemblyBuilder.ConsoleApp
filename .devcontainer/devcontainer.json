@@ -10,5 +10,7 @@
   ],
   "features": {
     "ghcr.io/devcontainers/features/powershell:1": {}
-  }
+  },
+  "postCreateCommand":  "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/ && chmod +x load-env.ps1'",
+  "postStartCommand": "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/ && ./load-env.ps1'"
 }
