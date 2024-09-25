@@ -100,4 +100,4 @@ error NU1101: Unable to find package Blazor.Tools.BlazorBundler.Entities.SampleO
 ::=============================================================================================================================================
 How To Build this project.
 ::=============================================================================================================================================
- dotnet build --verbosity detailed /p:PackageVersion="3.1.9" /p:Configuration="Release" /p:AssemblyVersion="3.1.9" /p:FileVersion="3.1.9" /p:Version="3.1.9"
+ dotnet build --verbosity detailed /p:PackageVersion="3.1.10" /p:Configuration="Release" /p:AssemblyVersion="3.1.10" /p:FileVersion="3.1.10" /p:Version="3.1.10"
