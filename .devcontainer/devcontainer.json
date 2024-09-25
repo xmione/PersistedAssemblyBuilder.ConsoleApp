@@ -1,16 +1,20 @@
 {
   "name": "C# (.NET)",
   "image": "mcr.microsoft.com/devcontainers/dotnet",
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-vscode.vscode-node-azure-pack"
+      ]
+    }
   },
-  "extensions": [
-    "ms-dotnettools.csharp",
-    "ms-vscode.vscode-node-azure-pack"
-  ],
   "features": {
     "ghcr.io/devcontainers/features/powershell:1": {}
   },
-  "postCreateCommand":  "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/ && chmod +x load-env.ps1'",
+  "postCreateCommand": "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/ && chmod +x load-env.ps1'",
   "postStartCommand": "bash -c 'cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/ && ./load-env.ps1'"
 }
