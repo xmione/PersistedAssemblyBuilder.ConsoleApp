@@ -65,6 +65,20 @@ public class Program
             Type[] interfaceTypes = {modelExtendedPropertiesType};
             TIModel.SetInterfaceConstraints(interfaceTypes);
 
+            // Define methods in the interface
+            DefineInterfaceMethod(typeBuilder, "ToNewModel", typeParams[0]); // TModel ToNewModel();
+            DefineInterfaceMethod(typeBuilder, "ToNewIModel", typeParams[1]); // TIModel ToNewIModel();
+            DefineInterfaceTaskMethod(typeBuilder, "FromModel", typeof(Task<>).MakeGenericType(typeBuilder), typeParams[0]); // Task<IViewModel<TModel, TIModel>> FromModel(TModel model);
+            DefineInterfaceTaskMethod(typeBuilder, "SetEditMode", typeof(Task<>).MakeGenericType(typeBuilder), typeof(bool)); // Task<IViewModel<TModel, TIModel>> SetEditMode(bool isEditMode);
+            DefineInterfaceTaskMethod(typeBuilder, "SaveModelVM", typeof(Task<>).MakeGenericType(typeBuilder)); // Task<IViewModel<TModel, TIModel>> SaveModelVM();
+            DefineInterfaceTaskMethod(typeBuilder, "SaveModelVMToNewModelVM", typeof(Task<>).MakeGenericType(typeBuilder)); // Task<IViewModel<TModel, TIModel>> SaveModelVMToNewModelVM();
+
+            // Define method with IEnumerable<IViewModel<TModel, TIModel>> as return type and parameter
+            Type iEnumerableViewModelType = typeof(IEnumerable<>).MakeGenericType(typeBuilder);
+            DefineInterfaceTaskMethod(typeBuilder, "AddItemToList", typeof(Task<>).MakeGenericType(iEnumerableViewModelType), iEnumerableViewModelType);
+            DefineInterfaceTaskMethod(typeBuilder, "UpdateList", typeof(Task<>).MakeGenericType(iEnumerableViewModelType), iEnumerableViewModelType, typeof(bool));
+            DefineInterfaceTaskMethod(typeBuilder, "DeleteItemFromList", typeof(Task<>).MakeGenericType(iEnumerableViewModelType), iEnumerableViewModelType);
+
             // Create the type
             Type createdType = typeBuilder.CreateTypeInfo().AsType();
 
@@ -97,5 +111,20 @@ public class Program
         }
         
     }
+    
+    private static void DefineInterfaceMethod(TypeBuilder typeBuilder, string methodName, Type returnType)
+    {
+        MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodName,
+            MethodAttributes.Public | MethodAttributes.Abstract | MethodAttributes.Virtual | MethodAttributes.HideBySig,
+            returnType, Type.EmptyTypes);
+    }
+
+    private static void DefineInterfaceTaskMethod(TypeBuilder typeBuilder, string methodName, Type returnType, params Type[] parameterTypes)
+    {
+        MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodName,
+            MethodAttributes.Public | MethodAttributes.Abstract | MethodAttributes.Virtual | MethodAttributes.HideBySig,
+            returnType, parameterTypes);
+    }
+
 }
 
