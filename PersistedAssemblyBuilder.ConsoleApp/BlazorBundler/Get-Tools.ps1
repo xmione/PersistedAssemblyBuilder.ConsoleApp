@@ -56,4 +56,5 @@ Set-Content -Path $ProfilePath -Value $FilteredContent
 # Add the new module import statements to the profile script
 Add-Content -Path $ProfilePath -Value $ModuleImports
 
+
 Write-Output "Finished setting up global module imports. Restart your PowerShell session to use them."

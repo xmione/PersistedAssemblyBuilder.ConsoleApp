@@ -100,8 +100,8 @@ error NU1101: Unable to find package Blazor.Tools.BlazorBundler.Entities.SampleO
 ::=============================================================================================================================================
 How To Build this project.
 ::=============================================================================================================================================
-$env:Version="3.1.14"
-dotnet build --verbosity detailed /p:PackageVersion=$env:Version /p:Configuration="Release" /p:AssemblyVersion=$env:Version /p:FileVersion=$env:Version /p:Version=$env:Version
+$env:PackageVersion="3.1.18"
+dotnet build --verbosity detailed /p:PackageVersion=$env:PackageVersion /p:Configuration="Release" /p:AssemblyVersion=$env:PackageVersion /p:FileVersion=$env:PackageVersion /p:Version=$env:PackageVersion
 
 ::=============================================================================================================================================
 How To Setup the Tools Module
@@ -110,7 +110,7 @@ How To Setup the Tools Module
 In bash:
 which pswh
 export PATH=$PATH:/usr/bin/pwsh
-export NugetApiKey="YOUR_API_KEY"
+export NugetApiKey="YOUR_API_KEY" >> ~/.bashrc
 
 in pwsh:
 /usr/bin/pwsh -ExecutionPolicy Bypass -File "PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/Get-Tools.ps1"
