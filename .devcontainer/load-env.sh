@@ -19,20 +19,4 @@ else
     ls -l "$ENV_FILE_PATH"  # Show file details
 fi
 
-# Set the NuGet API key from GitHub secrets
-export NugetApiKey="${{ secrets.TRI_MONTHLY_TEMPO }}"  # Correcting the export line
-
-# Append the NuGet API key to ~/.bashrc
-echo "export NugetApiKey='$NugetApiKey'" >> ~/.bashrc
-
-# Ensure NugetApiKey is set from the environment variable
-if [ -z "$NugetApiKey" ]; then
-    echo "Warning: NugetApiKey is not set. Please check your GitHub Actions secrets."
-else
-    echo "NugetApiKey is set successfully."
-fi
-
-# Print the important variables
-echo "Current Environment Variables:"
-echo "Configuration: $Configuration"
-echo "NugetApiKey: $NugetApiKey"
+ 

@@ -52,3 +52,5 @@ jobs:
             
       - name: Load environment variables
         run: bash ./.devcontainer/load-env.sh
+        env:
+          NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}
