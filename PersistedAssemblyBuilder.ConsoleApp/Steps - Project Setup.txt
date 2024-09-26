@@ -110,6 +110,7 @@ How To Setup the Tools Module
 In bash:
 which pswh
 export PATH=$PATH:/usr/bin/pwsh
+export NugetApiKey="YOUR_API_KEY"
 
 in pwsh:
 /usr/bin/pwsh -ExecutionPolicy Bypass -File "PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/Get-Tools.ps1"
