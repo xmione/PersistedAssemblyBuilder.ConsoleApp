@@ -20,6 +20,7 @@ fi
 
 # Set NugetApiKey from the environment variable
 export NugetApiKey="${NugetApiKey:-}"  # Keep existing value or set it to empty if not set
+echo "Debug: Attempting to set NugetApiKey from environment: $NugetApiKey"  # Debug output
 
 # Print the important variables
 echo "Current Environment Variables:"
