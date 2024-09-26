@@ -2,13 +2,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": ".NET 9 Launch (console)",
+      "name": "Debug Config",
       "type": "coreclr",
       "request": "launch",
-      "program": "bash",
-      "args": [
-        "${workspaceFolder}/.devcontainer/run-program.sh"  // Only call the script without additional args
-      ],
+      "program": "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\bin\\Debug\\net9.0\\PersistedAssemblyBuilder.ConsoleApp.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "name": "Release Config",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\bin\\Release\\net9.0\\PersistedAssemblyBuilder.ConsoleApp.dll",
+      "args": [],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
       "console": "integratedTerminal",
