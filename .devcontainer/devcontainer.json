@@ -17,5 +17,5 @@
     "ghcr.io/devcontainers/features/powershell:1": {}
   },
   "postCreateCommand": "cd /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/ && sudo chmod +x initializebashfiles.sh && ./initializebashfiles.sh",
-  "postStartCommand": ""
+  "postStartCommand": "/bin/bash"
 }

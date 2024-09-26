@@ -12,11 +12,12 @@ if [ -f "$ENV_FILE_PATH" ]; then
         key=$(echo "$key" | xargs)
         value=$(echo "$value" | xargs)
         export "$key=$value"
+        echo "export $key=\"$value\"" >> ~/.bashrc
         echo "Set $key = $value"  # Debug output
     done < "$ENV_FILE_PATH"
+    # Apply the changes to the current session
+    source ~/.bashrc
 else
     echo "Environment file not found: $ENV_FILE_PATH"
     ls -l "$ENV_FILE_PATH"  # Show file details
 fi
-
- 
