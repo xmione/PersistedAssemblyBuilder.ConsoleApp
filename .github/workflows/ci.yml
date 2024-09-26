@@ -37,9 +37,17 @@ jobs:
       - name: Print workspace path
         run: |
           echo "Workspace is located at: $GITHUB_WORKSPACE"
-          
+
       - name: Check folder permissions
         run: ls -ld "$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/"
-                
+              
+      - name: Check .env file existence
+        run: ls -l "$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/"
+
+      - name: Export environment variables
+        run: |
+          export $(cat "$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/.env" | xargs)
+          ./load-env.sh
+            
       - name: Load environment variables
         run: bash ./.devcontainer/load-env.sh
