@@ -13,6 +13,9 @@ LOG_FILE="/workspaces/PersistedAssemblyBuilder.ConsoleApp/initializebashfiles.lo
   # Make load-env-container.sh executable
   sudo chmod +x /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env-container.sh
 
+  # Make generate_tasks.sh executable
+  sudo chmod +x /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/generate_tasks.sh
+
   # Run the PowerShell script (if needed)
   sudo pwsh /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/Get-Tools.ps1
 
