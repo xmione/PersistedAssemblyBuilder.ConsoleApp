@@ -17,10 +17,10 @@ LOG_FILE="/workspaces/PersistedAssemblyBuilder.ConsoleApp/initializebashfiles.lo
   sudo pwsh /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/Get-Tools.ps1
 
   # Execute load-env.sh in an interactive shell
-  # if ! bash -i /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh; then
-  #   echo "Failed to execute load-env.sh" | tee -a "$LOG_FILE"
-  #   exit 1
-  # fi
+  if ! bash -i /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh; then
+    echo "Failed to execute load-env.sh" | tee -a "$LOG_FILE"
+    exit 1
+  fi
 
   echo "initializebashfiles completed"
 } 2>&1 | tee -a "$LOG_FILE"

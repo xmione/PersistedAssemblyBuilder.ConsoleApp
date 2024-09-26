@@ -20,6 +20,8 @@ else
     ls $ENV_FILE_PATH
 fi
 
+export NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}' >> ~/.bashrc
+
 # Ensure NugetApiKey is set from the environment variable
 if [ -z "$NugetApiKey" ]; then
     echo "Warning: NugetApiKey is not set. Please check your GitHub Actions secrets."
