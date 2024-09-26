@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: List files in workspace
-        run: ls -R /workspaces/PersistedAssemblyBuilder.ConsoleApp/
+      - name: List files in current directory
+        run: ls -R .
 
       - name: Set up environment
         run: bash .devcontainer/load-env.sh
