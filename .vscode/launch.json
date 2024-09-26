@@ -4,6 +4,7 @@
     {
       "name": "Debug Config",
       "type": "coreclr",
+      "preLaunchTask": "build debug",
       "request": "launch",
       "program": "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\bin\\Debug\\net9.0\\PersistedAssemblyBuilder.ConsoleApp.dll",
       "args": [],
@@ -15,6 +16,7 @@
     {
       "name": "Release Config",
       "type": "coreclr",
+      "preLaunchTask": "build release",
       "request": "launch",
       "program": "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\bin\\Release\\net9.0\\PersistedAssemblyBuilder.ConsoleApp.dll",
       "args": [],

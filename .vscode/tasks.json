@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build",
+      "label": "build debug",
       "command": "dotnet",
       "type": "process",
       "args": [
@@ -11,7 +11,24 @@
         "detailed",
         "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\PersistedAssemblyBuilder.ConsoleApp.csproj",
         "/p:PackageVersion=${env:PackageVersion}",
-        "/p:Configuration=${env:Configuration}",
+        "/p:Configuration=Debug",
+        "/p:AssemblyVersion=${env:AssemblyVersion}",
+        "/p:FileVersion=${env:FileVersion}",
+        "/p:Version=${env:PackageVersion}"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build release",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "--verbosity",
+        "detailed",
+        "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\PersistedAssemblyBuilder.ConsoleApp.csproj",
+        "/p:PackageVersion=${env:PackageVersion}",
+        "/p:Configuration=Release",
         "/p:AssemblyVersion=${env:AssemblyVersion}",
         "/p:FileVersion=${env:FileVersion}",
         "/p:Version=${env:PackageVersion}"
