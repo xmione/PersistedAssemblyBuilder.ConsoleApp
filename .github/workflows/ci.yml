@@ -33,6 +33,10 @@ jobs:
       - name: Test NugetApiKey
         run: |
           echo "NugetApiKey is set to: $NugetApiKey"  # Will print the value (or part of it)
-          
+      
+      - name: Print workspace path
+        run: |
+          echo "Workspace is located at: $GITHUB_WORKSPACE"
+        
       - name: Load environment variables
         run: bash ./.devcontainer/load-env.sh

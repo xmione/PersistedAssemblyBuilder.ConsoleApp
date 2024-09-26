@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the environment file path
-ENV_FILE_PATH="/workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/.env"
+ENV_FILE_PATH="$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/.env"
 
 # Check if the .env file exists
 if [ -f "$ENV_FILE_PATH" ]; then
