@@ -16,11 +16,14 @@ if [ -f "$ENV_FILE_PATH" ]; then
     done < "$ENV_FILE_PATH"
 else
     echo "Environment file not found: $ENV_FILE_PATH"
-    echo "ls $ENV_FILE_PATH"
-    ls $ENV_FILE_PATH
+    ls -l "$ENV_FILE_PATH"  # Show file details
 fi
 
-export NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}' >> ~/.bashrc
+# Set the NuGet API key from GitHub secrets
+export NugetApiKey="${{ secrets.TRI_MONTHLY_TEMPO }}"  # Correcting the export line
+
+# Append the NuGet API key to ~/.bashrc
+echo "export NugetApiKey='$NugetApiKey'" >> ~/.bashrc
 
 # Ensure NugetApiKey is set from the environment variable
 if [ -z "$NugetApiKey" ]; then
