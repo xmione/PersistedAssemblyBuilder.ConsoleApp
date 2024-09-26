@@ -22,10 +22,14 @@ jobs:
           echo "NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}" >> $GITHUB_ENV
           echo "Current environment variables:"
           env | grep NugetApiKey || true
+
       - name: Log secret length
         run: |
-          echo "Secret length: ${#secrets.TRI_MONTHLY_TEMPO}"  # This will not print the actual secret
-      - name: Test secret output
+          echo "Secret length: ${#NugetApiKey}"  # Now this will work since we've set it to an env variable
+
+      - name: List environment variables
+        run: env
+
+      - name: Test NugetApiKey
         run: |
-          echo "NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}"
-        
+          echo "NugetApiKey is set to: $NugetApiKey"  # Will print the value (or part of it)
