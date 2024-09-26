@@ -17,7 +17,7 @@ LOG_FILE="/workspaces/PersistedAssemblyBuilder.ConsoleApp/initializebashfiles.lo
   sudo pwsh /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/Get-Tools.ps1
 
   # Source the load-env.sh script to set environment variables in the current shell
-  if ! sudo source /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh; then
+  if ! source /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh; then
     echo "Failed to source load-env.sh" | tee -a "$LOG_FILE"
     exit 1
   fi
