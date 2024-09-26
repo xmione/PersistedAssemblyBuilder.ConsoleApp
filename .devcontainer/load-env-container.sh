@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set the environment file path
-ENV_FILE_PATH="$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/.env"
-
+ENV_FILE_PATH="${workspaceFolder}PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/.env"
+echo "#" > ~/.bashrc
 # Check if the .env file exists
 if [ -f "$ENV_FILE_PATH" ]; then
     while IFS='=' read -r key value; do

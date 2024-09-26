@@ -51,6 +51,6 @@ jobs:
           set +o allexport
             
       - name: Load environment variables
-        run: bash ./.devcontainer/load-env.sh
+        run: bash ./.devcontainer/load-env-actions.sh
         env:
           NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}

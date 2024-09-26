@@ -10,15 +10,15 @@ LOG_FILE="/workspaces/PersistedAssemblyBuilder.ConsoleApp/initializebashfiles.lo
     sudo chmod +x "$file"
   done
 
-  # Make load-env.sh executable
-  sudo chmod +x /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh
+  # Make load-env-container.sh executable
+  sudo chmod +x /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env-container.sh
 
   # Run the PowerShell script (if needed)
   sudo pwsh /workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/Get-Tools.ps1
 
-  # Execute load-env.sh in an interactive shell
-  if ! bash -i /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh; then
-    echo "Failed to execute load-env.sh" | tee -a "$LOG_FILE"
+  # Execute load-env-container.sh in an interactive shell
+  if ! bash -i /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env-container.sh; then
+    echo "Failed to execute load-env-container.sh" | tee -a "$LOG_FILE"
     exit 1
   fi
 
