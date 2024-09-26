@@ -18,9 +18,8 @@ else
     echo "Environment file not found: $ENV_FILE_PATH"
 fi
 
-# Use the GitHub secret for NuGetApiKey
-export NugetApiKey="${{ secrets.TRI_MONTHLY_TEMPO }}"
-echo "NugetApiKey set from GitHub secret."
+# Set NugetApiKey from the environment variable
+export NugetApiKey="${NugetApiKey:-}"  # Keep existing value or set it to empty if not set
 
 # Print the important variables
 echo "Current Environment Variables:"
