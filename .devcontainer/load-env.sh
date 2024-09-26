@@ -18,9 +18,12 @@ else
     echo "Environment file not found: $ENV_FILE_PATH"
 fi
 
-# Set NugetApiKey from the environment variable
-export NugetApiKey="${NugetApiKey:-}"  # Keep existing value or set it to empty if not set
-echo "Debug: Attempting to set NugetApiKey from environment: $NugetApiKey"  # Debug output
+# Ensure NugetApiKey is set from the environment variable
+if [ -z "$NugetApiKey" ]; then
+    echo "Warning: NugetApiKey is not set. Please check your GitHub Actions secrets."
+else
+    echo "NugetApiKey is set successfully."
+fi
 
 # Print the important variables
 echo "Current Environment Variables:"

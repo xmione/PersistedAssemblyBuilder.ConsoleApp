@@ -13,10 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set NugetApiKey environment variable
+        run: echo "NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}"
+        env:
+          NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}
+
       - name: Set up environment
         env:
-          NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}  # Access the secret here
-        run: |
-          echo "Running load-env.sh script with NugetApiKey"
-          echo "NugetApiKey is set to: $NugetApiKey"  # Avoid printing the actual secret in logs
-          bash /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh
+          NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}
+        run: bash /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh
