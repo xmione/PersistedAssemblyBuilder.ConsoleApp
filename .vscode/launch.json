@@ -7,7 +7,7 @@
       "request": "launch",
       "program": "bash",
       "args": [
-        "${workspaceFolder}/.vscode/run-program.sh"  // Only call the script without additional args
+        "${workspaceFolder}/.devcontainer/run-program.sh"  // Only call the script without additional args
       ],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
