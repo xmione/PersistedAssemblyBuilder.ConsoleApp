@@ -42,7 +42,7 @@ jobs:
         run: ls -ld "$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/"
               
       - name: Check .env file existence
-        run: ls -l "$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/"
+        run: ls -l "$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/"
 
       - name: Export environment variables
         run: |
