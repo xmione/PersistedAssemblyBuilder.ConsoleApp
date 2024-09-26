@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - master  # Adjust the branch as necessary
 
 jobs:
   build:
@@ -13,12 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set NugetApiKey environment variable
-        env:
-          NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}  # Set the environment variable using the secret
-        run: echo "NugetApiKey is set"  # Just a confirmation message, do not print the actual key
+      - name: List files in workspace
+        run: ls -R /workspaces/PersistedAssemblyBuilder.ConsoleApp/
 
       - name: Set up environment
+        run: bash .devcontainer/load-env.sh
         env:
-          NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}  # Use the secret for the next command
-        run: bash /workspaces/PersistedAssemblyBuilder.ConsoleApp/.devcontainer/load-env.sh
+          NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}
