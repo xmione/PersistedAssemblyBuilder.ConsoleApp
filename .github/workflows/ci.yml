@@ -33,3 +33,6 @@ jobs:
       - name: Test NugetApiKey
         run: |
           echo "NugetApiKey is set to: $NugetApiKey"  # Will print the value (or part of it)
+          
+      - name: Load environment variables
+        run: bash ./.devcontainer/load-env.sh
