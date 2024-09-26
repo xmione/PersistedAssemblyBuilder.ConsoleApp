@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master  # Adjust the branch as necessary
+      - master  # Adjust according to your needs
 
 jobs:
   build:
@@ -13,11 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: List files in current directory
-        run: ls -R .
-
-      - name: Set up environment
+      - name: Set up environment variables
         run: |
           echo "Setting up environment variables..."
           echo "NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}" >> $GITHUB_ENV
-          bash .devcontainer/load-env.sh
+          echo "Current environment variables:"
+          env | grep NugetApiKey
+      
+      - name: Run load-env.sh
+        run: bash .devcontainer/load-env.sh
