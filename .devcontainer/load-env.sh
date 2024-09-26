@@ -16,6 +16,8 @@ if [ -f "$ENV_FILE_PATH" ]; then
     done < "$ENV_FILE_PATH"
 else
     echo "Environment file not found: $ENV_FILE_PATH"
+    echo "ls $ENV_FILE_PATH"
+    ls $ENV_FILE_PATH
 fi
 
 # Ensure NugetApiKey is set from the environment variable
