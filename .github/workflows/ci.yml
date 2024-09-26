@@ -46,8 +46,9 @@ jobs:
 
       - name: Export environment variables
         run: |
-          export $(cat "$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/.env" | xargs)
-          ./load-env.sh
+          set -o allexport
+          grep -v '^#' "$GITHUB_WORKSPACE/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/.env" | grep -v '^$' | xargs -d '\n'
+          set +o allexport
             
       - name: Load environment variables
         run: bash ./.devcontainer/load-env.sh
