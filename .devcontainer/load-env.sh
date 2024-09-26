@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the environment file path
-ENV_FILE_PATH=".env"
+ENV_FILE_PATH="/workspaces/PersistedAssemblyBuilder.ConsoleApp/PersistedAssemblyBuilder.ConsoleApp/BlazorBundler/.env"
 
 # Check if the .env file exists
 if [ -f "$ENV_FILE_PATH" ]; then
@@ -17,12 +17,20 @@ if [ -f "$ENV_FILE_PATH" ]; then
         export "$key=$value"
         echo "Set $key = $value"  # Debug output
     done < "$ENV_FILE_PATH"
-
-    # Accessing the variables in Bash
-    echo "Current Environment Variables:"
-    echo "Configuration: $Configuration"
-    echo "Major Version: $MajorVersion"
-    echo "Minor Version: $MinorVersion"
 else
     echo "Environment file not found: $ENV_FILE_PATH"
 fi
+
+# Prompt user to input NugetApiKey if it's not already set
+if [ -z "$NugetApiKey" ]; then
+    read -p "Please enter your NugetApiKey: " NugetApiKey
+    export NugetApiKey
+    echo "NugetApiKey set."
+else
+    echo "NugetApiKey already set."
+fi
+
+# Optionally, print all the important variables to confirm they are set
+echo "Current Environment Variables:"
+echo "Configuration: $Configuration"
+echo "NugetApiKey: $NugetApiKey"
