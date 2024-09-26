@@ -10,11 +10,11 @@
         "--verbosity",
         "detailed",
         "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\PersistedAssemblyBuilder.ConsoleApp.csproj",
-        "/p:PackageVersion=${env:PackageVersion}",
+        "/p:PackageVersion=3.1.18",
         "/p:Configuration=Debug",
-        "/p:AssemblyVersion=${env:AssemblyVersion}",
-        "/p:FileVersion=${env:FileVersion}",
-        "/p:Version=${env:PackageVersion}"
+        "/p:AssemblyVersion=3.1.18.0",
+        "/p:FileVersion=3.1.18.0",
+        "/p:Version=3.1.18"
       ],
       "problemMatcher": "$msCompile"
     },
@@ -27,11 +27,11 @@
         "--verbosity",
         "detailed",
         "${workspaceFolder}\\PersistedAssemblyBuilder.ConsoleApp\\PersistedAssemblyBuilder.ConsoleApp.csproj",
-        "/p:PackageVersion=${env:PackageVersion}",
+        "/p:PackageVersion=3.1.18",
         "/p:Configuration=Release",
-        "/p:AssemblyVersion=${env:AssemblyVersion}",
-        "/p:FileVersion=${env:FileVersion}",
-        "/p:Version=${env:PackageVersion}"
+        "/p:AssemblyVersion=3.1.18.0",
+        "/p:FileVersion=3.1.18.0",
+        "/p:Version=3.1.18"
       ],
       "problemMatcher": "$msCompile"
     }
