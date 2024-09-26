@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master  # Adjust according to your needs
+      - master  # Adjust the branch as necessary
 
 jobs:
   build:
@@ -13,12 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: List files in current directory
+        run: ls -R .
+
       - name: Set up environment variables
         run: |
           echo "Setting up environment variables..."
           echo "NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}" >> $GITHUB_ENV
           echo "Current environment variables:"
-          env | grep NugetApiKey
-      
-      - name: Run load-env.sh
-        run: bash .devcontainer/load-env.sh
+          env | grep NugetApiKey || true  # Use || true to prevent failure if the variable is not set Use the || true Command: The line env | grep NugetApiKey || true allows the script to continue even if the grep command fails (if NugetApiKey is not set). This can help you see
