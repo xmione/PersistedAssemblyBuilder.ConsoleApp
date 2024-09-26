@@ -5,14 +5,14 @@
       "name": ".NET 9 Launch (console)",
       "type": "coreclr",
       "request": "launch",
-      // "preLaunchTask": "build",
-      "program": "${workspaceFolder}/PersistedAssemblyBuilder.ConsoleApp/bin/${env:Configuration}/net9.0/PersistedAssemblyBuilder.ConsoleApp.dll",
-      "args": [],
+      "program": "bash",
+      "args": [
+        "${workspaceFolder}/.vscode/run-program.sh"  // Only call the script without additional args
+      ],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "brokeredServicePipeName": "undefined"
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "openOnSessionStart"
     }
   ]
 }
