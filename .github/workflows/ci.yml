@@ -21,4 +21,11 @@ jobs:
           echo "Setting up environment variables..."
           echo "NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}" >> $GITHUB_ENV
           echo "Current environment variables:"
-          env | grep NugetApiKey || true  # Use || true to prevent failure if the variable is not set Use the || true Command: The line env | grep NugetApiKey || true allows the script to continue even if the grep command fails (if NugetApiKey is not set). This can help you see
+          env | grep NugetApiKey || true
+      - name: Log secret length
+        run: |
+          echo "Secret length: ${#secrets.TRI_MONTHLY_TEMPO}"  # This will not print the actual secret
+      - name: Test secret output
+        run: |
+          echo "NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}"
+        
