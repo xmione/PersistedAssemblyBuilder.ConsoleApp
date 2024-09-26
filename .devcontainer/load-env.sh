@@ -18,14 +18,9 @@ else
     echo "Environment file not found: $ENV_FILE_PATH"
 fi
 
-# Prompt user to input NugetApiKey if it's not already set
-if [ -z "$NugetApiKey" ]; then
-    read -e -p "Please enter your NugetApiKey: " NugetApiKey
-    export NugetApiKey
-    echo "NugetApiKey set."
-else
-    echo "NugetApiKey already set."
-fi
+# Use the GitHub secret for NuGetApiKey
+export NugetApiKey="${{ secrets.TRI_MONTHLY_TEMPO }}"
+echo "NugetApiKey set from GitHub secret."
 
 # Print the important variables
 echo "Current Environment Variables:"
