@@ -17,6 +17,7 @@ jobs:
         run: ls -R .
 
       - name: Set up environment
-        run: bash .devcontainer/load-env.sh
-        env:
-          NugetApiKey: ${{ secrets.TRI_MONTHLY_TEMPO }}
+        run: |
+          echo "Setting up environment variables..."
+          echo "NugetApiKey=${{ secrets.TRI_MONTHLY_TEMPO }}" >> $GITHUB_ENV
+          bash .devcontainer/load-env.sh
